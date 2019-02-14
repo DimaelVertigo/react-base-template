@@ -1,13 +1,13 @@
 import {default as thunk} from "redux-thunk";
 import {createStore, combineReducers, applyMiddleware} from 'redux';
-import {app, api, isFetching, score, page, single, url, modal, loader} from '../reducers';
+import {api} from '../reducers/api';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
 const enhancer = composeWithDevTools(applyMiddleware(thunk));
 
 const storeFactory = () =>
   createStore(
-    combineReducers({app, api, isFetching, score, page, single, url, modal, loader}), undefined, enhancer
+    combineReducers({api}), undefined, enhancer
   );
 
 export default storeFactory;
